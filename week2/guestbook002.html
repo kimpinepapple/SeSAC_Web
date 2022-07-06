@@ -6,7 +6,7 @@
                 let author = document.getElementById("author").value;
                 let content = document.getElementById("content").value;
                 let date = new Date();
-                date = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDay() + ' ' + date.getHours() + ":" + date.getMinutes();
+                date = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate() + ' ' + date.getHours() + ":" + date.getMinutes();
                 let table = document.getElementById("form");
                 
                 const newRow = document.createElement("tr");  
