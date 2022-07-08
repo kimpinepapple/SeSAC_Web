@@ -1,41 +1,14 @@
 <html>
     <head>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
-            function setValue() {
-                //document.getElementById("input1").value = "~~";
-                $("#input1").val("setting");
-            }
+            let arr1 = ['월', '화', '수'];
 
-            function getValue() {
-                //var span = document.querySelector("span");
-                //span.style = "font-size:500px; color:red;"
-                $("span").css("font-size", "50px");
-                $("span").css("color", "red");
-            }
-
-            function changeText() {
-                //var span = document.querySelector("span");
-                //span.innerHTML = "javascript"
-                $("span").text("jQuery");
-            }
-
-            function changeAttribute() {
-                var im
-            }
+             for(let arr of arr1){
+                console.log(arr)
+             }
+            
         </script>
     </head>
     <body>
-        <input type="text" id="input1">
-        <button type="button" onclick="setValue();">setValue</button>
-        <button type="button" onclick="getValue();">getValue</button>
-        <br>
-        <span>안녕</span>
-        <img src="";>
-        <button type="button" onclick="changeStyle();">changeStyle</button>
-        <button type="button" onclick="changeText();">changeText</button>
-        <button type="button" onclick="changeAttribute();">changeAttribute</button>
-        <p style="background-color: orange;">I'm P tag</p>
-        <button type="button" onclick="changeHTML();">changeHTML</button>
     </body>
 </html>
