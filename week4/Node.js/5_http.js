@@ -9,15 +9,3 @@ const server = http.createServer( function(req, res){
 server.listen(8000, function(){
     console.log("8000번 포트");   // ACG 80
 })
-
-server.on( "request", function(){
-    console.log("Client Request" );
-})
-
-server.on("connection", function(){
-    console.log("Client Connection");
-})
-
-server.on("checkContinue", function(){
-    console.log("Client checkContinue");
-})

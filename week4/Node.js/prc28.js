@@ -38,3 +38,19 @@ const server = http.createServer( function(req, res){
         }
     });
 })
+
+server.listen(8080, function(){
+    console.log("8080번 포트"); 
+})
+
+server.on( "request", function(){
+    console.log("Client Request" );
+})
+
+server.on("connection", function(){
+    console.log("Client Connection");
+})
+
+server.on("checkContinue", function(){
+    console.log("Client checkContinue");
+})
