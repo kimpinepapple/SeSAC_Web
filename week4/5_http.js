@@ -6,7 +6,7 @@ const server = http.createServer( function(req, res){
     res.end("<p>안녕</p>"); // response를 해당 내용으로 "보낸다"
 }); // 서버 생성
 
-server.listen(8000, function(){
+server.listen(8080, function(){
     console.log("8000번 포트");   // ACG 80
 })
 
