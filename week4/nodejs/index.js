@@ -17,3 +17,20 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log( 'server port : ', port );
 })
+
+
+/*
+const express = reqire('express')
+const app = express();
+const port = 8080;
+
+app.set("view engine", "ejs");
+app.use("/abc/aa", express.static("public"));
+app.get('/',(req, res) => {
+    var list = ['apple', 'banana']
+    res.render('test', {A:list});
+})
+app.listen(port, () => {
+    console.log( 'server port : ', port);
+})
+*/
