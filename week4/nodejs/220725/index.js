@@ -10,7 +10,7 @@ app.use( express.urlencoded({extended: true})); //
 app.use( bodyParser.json() ); // body-parser로 받을 때, json 형태로 받겠다.
 
 app.get("/", function(req, res){
-    res.render("login");
+    res.render("prc32");
 })
 
 app.get("/receive", function(req, res){

@@ -9,33 +9,29 @@ app.use( express.static( "public" ));
 app.use( express.urlencoded({extended: true}));
 app.use( bodyParser.json() ); 
 
-app.get("/", function(req, res) {
-    res.render("prc32-1");          
-});
-app.get("/first", function(req, res) {
-    res.render("prc33");         
+app.get("/", function(req,res) {
+    res.render("prc32-1");
+})
+
+app.get("/receive", function(req, res) {
+    console.log( req.query );
+    let name = req.query.name;
+    let msg = req.query.name + "GET 안녕"
+    res.send({name: name, message: msg});          
 });
 
-app.get("/first/receive", function(req, res){
-    console.log(req.query);
-    let name = req.query.name  + "GET";
-    let gender = req.query.gender + "GET";
-    let year = req.query.year + "GET";
-    res.send( { name: name, gender: gender, year: year } );
-});
-
-app.post('/', function(req, res){
+app.post('/receive', function(req, res){
     let string = fs.readFileSync("./newinfo/info.txt").toString();
     let strArray = string.split("//")
-
-    let ID = req.body.id
-    let PW = req.body.pw
-    if (ID === strArray[0] && PW === strArray[1]) {
+    let ID = req.body.ID;
+    let PW = req.body.PW;
+    let NAME = req.body.NAME;
+    if (ID === strArray[0] && PW === strArray[1] && NAME === strArray[2]) {
         //로그인 성공시
-        res.render("success")
-    }else {
+        res.send("회원가입 성공하셨습니다.")
+    } else {
         //로그인 실패시
-        res.render("failure")
+        res.send("다시 입력해주세요.")
     }}
 )
 

@@ -2,20 +2,24 @@
     <head>
         <title>prc32-1. 로그인</title>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script>
              function sendPost(){
+                var input_id = document.getElementById("_id").value;
+                var input_pw = document.getElementById("_pw").value;
+                var input_name = document.getElementById("_name").value;
                 axios({
                     method: "post",
-                    url: "http://localhost:8080/",
+                    url: "http://localhost:8080/receive",
                     data:{
-                        ID: "yeye",
-                        PW : "1234",
-                        NAME : "yeaeun"
+                        ID: input_id,
+                        PW : input_pw,
+                        NAME : input_name
                     }
-                }).then((response) => {
-                    console.log(response)
-                })
-             }
+                }).then( (a) => {return (a.data)})
+                .then( (b) => { 
+                    return ( $(msg).html(b) ) } ); 
+            };
              function sendForm(){
                     var form = document.getElementById("form_info");
                     console.log( form );
@@ -80,18 +84,19 @@
                     <div style="height: 20px;"></div>
                     <div>
                         <p>ID<span class="span_1" style="margin-left: 35px;"></span></p>
-                        <input id="ID" type="text" name="id" required>
+                        <input id="_id" type="text" name="id" required>
                     </div>
                     <div>
                         <p>PW<span class="span_1" style="margin-left: 30px;"></span></p>
-                        <input id="password" type="password" name="pw" required>
+                        <input id="_pw" type="password" name="pw" required>
                     </div>
                     <div>
                         <p>NAME<span class="span_1" style="margin-left: 20px;"></span></p>
                         <input id="_name" type="text" name="name" required>
                     </div>
                     <div style="margin-top: 10px; margin-bottom: 20px;"></div>
-                    <button type="submit" onclick="sendForm(), sendPost();" class="btn">sign up!</button>    
+                    <button type="button" onclick="sendForm(), sendPost();" class="btn">sign up!</button><br>
+                    <div id="msg" style="color: red"></div>   
             </form>
         </div>
     </body>
