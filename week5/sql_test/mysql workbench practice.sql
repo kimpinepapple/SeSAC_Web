@@ -75,4 +75,3 @@ SELECT * FROM user WHERE age ORDER BY age desc limit 3; /* 6번 */
 SELECT * FROM user WHERE age BETWEEN 25 and 50; /* 7번 */
 UPDATE user SET pw = 12345678 WHERE id = 'hong1234'; /* 8번 */
 DELETE FROM user WHERE id = 'jungkrat'; /* 9번 */
-
