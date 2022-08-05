@@ -29,7 +29,7 @@ app.use( express.urlencoded({extended: true}));
 app.use( bodyParser.json() ); 
 
 app.get("/", test, test2, function(req, res) {  // test, tes2 -> router
-    res.render("prc36");
+    res.render("index");
 });
 
 app.post("/upload", upload.single('userfile'), function(req, res) { //single : name 으로 넘어온 하나의 파일만 받는다. 
@@ -38,13 +38,13 @@ app.post("/upload", upload.single('userfile'), function(req, res) { //single : n
 })
 app.post("/upload/array", upload.array('userfile'), function(req, res) {
     console.log(req.body);
-    console.log(req.files);   // s 
+    console.log(req.files);   
     res.send("Upload Array")
 })
 //넘어오는 파일의 name을 하나하나 지정해줘야 한다. fields는 번거로워서 자주 사용하지는 않는편.
 app.post("/upload/fields", upload.fields([{name:'userfile'}, {name:'userfile2'}, {name:'userfile3'}]), function(req, res) {
     console.log(req.body);
-    console.log(req.files);   // s 
+    console.log(req.files);   
     res.send("Upload Fields")
 })
 
