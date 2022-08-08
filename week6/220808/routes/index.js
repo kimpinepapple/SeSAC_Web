@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const user = require('../controller/UserController')
+const visitor = require('../controller/UserController')
 
-
-router.post('/user', user.post_index);
+router.get("/", visitor.get_visitors);
+router.post("/write", visitor.post_comment);
+router.get("/get", visitor.get_visitor);
+router.patch("/edit", visitor.patch_comment);
+router.delete("/delete", visitor.delete_comment);
 
 module.exports = router;

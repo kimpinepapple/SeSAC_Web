@@ -3,7 +3,7 @@ const cnn = mysql.createConnection({
     host: 'localhost',   
     user: 'user',
     password: '1234',
-    database: 'sesac'    
+    database: 'sesac'  
 });
 
 exports.get_index = (cb) => {
