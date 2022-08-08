@@ -8,5 +8,4 @@ router.get("/get", visitor.get_visitor);
 router.patch("/edit", visitor.patch_comment);
 router.delete("/delete", visitor.delete_comment);
 
-
 module.exports = router;
