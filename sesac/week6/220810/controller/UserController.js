@@ -33,8 +33,12 @@ exports.post_signin = (req, res) => {
         where: {id: req.body.id}
     }).then((result) => {
         console.log( result );
-        res.send( true );
-    })
+        
+        if ( req.body.pw == result.pw ){
+            res.send(true)
+            return
+        }else {res.send(false)}
+    });
 }
 
 // exports.get_profile = (req, res) => {
