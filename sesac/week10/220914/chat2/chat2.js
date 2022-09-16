@@ -6,8 +6,11 @@ var io = require('socket.io')(http)
 // 첫화면 
 app.get('/', function(req, res){
     console.log('client')
-    res.sendFile(__dirname + "/chat.html")
+    res.sendFile(__dirname + "/chat2.html")
 });
+
+app.use("/public", express.static("public"));
+app.use(express.urlencoded({extended: true}));
 
 // select에 들어갈 닉네임
 var list = {};
