@@ -3,7 +3,7 @@ const models = require("../model")
 
 exports.get_index = (req,res) => {
     res.render("first")
-}
+};
 // exports.post_signup = (req,res) => {
 //     user.post_signup(req.body, function(result){
 //         console.log(result);
@@ -19,8 +19,8 @@ exports.post_signup = (req, res) => {
     .then((result) => {
         console.log(result)
         res.send({id: result.id});
-    })
-}
+    });
+};
 
 // exports.post_signin = (req,res) => {
 //     user.post_signin(req.body.id, req.body.pw, function(result){
@@ -33,9 +33,13 @@ exports.post_signin = (req, res) => {
         where: {id: req.body.id}
     }).then((result) => {
         console.log( result );
-        res.send( true );
-    })
-}
+        
+        if ( req.body.pw == result.pw ){
+            res.send(true)
+            return
+        }else {res.send(false)}
+    });
+};
 
 // exports.get_profile = (req, res) => {
 //     res.render("index02")
@@ -44,8 +48,8 @@ exports.get_profile = (req, res) => {
     models.User.findAll()
     .then((result) => {
         res.render("second", { data: result })
-    })
-}
+    });
+};
 
 // exports.profile = (req,res) => {
 //     user.get_user(req.body.id, function(result){
@@ -69,8 +73,8 @@ exports.profile_edit = (req, res) => {
     .then((result) => {
         console.log(result);
         res.send('회원정보 수정')
-    })
-}
+    });
+};
 
 // exports.profile_delete = (req,res) => {
 //     user.delete_user(req.body.id, function(result){
@@ -83,5 +87,5 @@ exports.profile_delete = (req, res) => {
     }).then((result) => {
         console.log(result);
         res.send("회원정보 탈퇴")
-    })
-}
+    });
+};
