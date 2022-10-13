@@ -12,6 +12,7 @@ export const Login = () => {
       비밀번호 <input type="password" />
       <br />
       <br />
+      <button>로그인</button>
       <button>
         <Link to="/signup">회원가입</Link>
       </button>
